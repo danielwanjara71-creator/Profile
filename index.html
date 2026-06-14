@@ -1000,13 +1000,18 @@ function submitForm(){
   if(!allOk()){showToast('Please fill in all fields correctly.','bad');return}
   const btn=document.getElementById('submitBtn');
   btn.classList.add('loading'); btn.disabled=true;
-  emailjs.send(EJS,EJT,{
+  const payload={
     from_name:document.getElementById('f-name').value.trim(),
     from_email:document.getElementById('f-email').value.trim(),
     subject:document.getElementById('f-subject').value.trim(),
     message:document.getElementById('f-msg').value.trim(),
     to_name:'Daniel'
-  }).then(()=>{
+  };
+  // Send notification to Daniel + auto-reply to user simultaneously
+  Promise.all([
+    emailjs.send(EJS, EJT2, payload),  // notification to Daniel
+    emailjs.send(EJS, EJT,  payload),  // auto-reply to user
+  ]).then(()=>{
     btn.classList.remove('loading'); btn.disabled=false;
     showToast('Message sent! Daniel will reply within 24 hours ✓','ok');
     ['f-name','f-email','f-subject','f-msg'].forEach(id=>document.getElementById(id).value='');
