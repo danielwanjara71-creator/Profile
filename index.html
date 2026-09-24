@@ -78,7 +78,7 @@ section{position:relative;z-index:1}
 .about-layout{display:grid;grid-template-columns:1fr 1fr;gap:6rem;align-items:start}
 .about-body p{font-size:.98rem;color:var(--muted);line-height:1.9;margin-bottom:1.1rem}
 .about-body p strong{color:var(--charcoal);font-weight:500}
-.stats-row{display:grid;grid-template-columns:repeat(4,1fr);gap:1rem;margin-top:2.5rem}
+.stats-row{display:grid;grid-template-columns:repeat(3,1fr);gap:1rem;margin-top:2.5rem}
 .sc{padding:1.25rem 1rem;background:var(--ivory);border:1px solid var(--sand);border-radius:12px;text-align:center;transition:transform .3s,box-shadow .3s}
 .sc:hover{transform:translateY(-4px);box-shadow:0 10px 32px rgba(58,50,40,.08)}
 .sc-n{font-family:'Cormorant Garamond',serif;font-size:2.2rem;font-weight:300;color:var(--terracotta);line-height:1}
@@ -178,6 +178,8 @@ section{position:relative;z-index:1}
 .pv-a{background:linear-gradient(135deg,rgba(196,149,58,.14),rgba(232,220,196,.1))}
 .pv-e{background:linear-gradient(135deg,rgba(192,120,85,.14),rgba(232,224,210,.1))}
 .pv-d{background:linear-gradient(135deg,rgba(212,168,154,.2),rgba(237,213,200,.12))}
+.proj-icon{width:112px;height:112px;border-radius:50%;background:rgba(255,255,255,.55);border:1px solid var(--sand);display:flex;align-items:center;justify-content:center;box-shadow:0 8px 24px rgba(58,50,40,.06)}
+.proj-icon svg{width:54px;height:54px}
 .proj-vis-label{font-size:9px;letter-spacing:.2em;text-transform:uppercase;opacity:.6}
 .pm{width:68px;height:128px;background:var(--warm-white);border:1.5px solid var(--sand);border-radius:12px;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:5px;padding:10px 7px;box-shadow:6px 10px 24px rgba(58,50,40,.1)}
 .pml{height:3px;border-radius:2px;background:var(--sage-light)}
@@ -380,9 +382,10 @@ footer{padding:2rem 6vw;border-top:1px solid var(--sand);display:flex;justify-co
       </div>
     </div>
     <div class="hero-photo">
-      <img src="https://firebasestorage.googleapis.com/v0/b/sasini-admin-test.firebasestorage.app/o/users%2F5O2Jl93oVBQkzgQbsx28k0stN7l2%2Fuploads%2FPassport2.png?alt=media&token=a2de895c-0ad8-41da-949c-40d6c060a5f4"
+      <img src="profile.png"
         alt="Daniel Wanjara"
-        onerror="this.style.display='none';this.nextElementSibling.style.display='flex'">
+        data-fallback="https://firebasestorage.googleapis.com/v0/b/sasini-admin-test.firebasestorage.app/o/users%2F5O2Jl93oVBQkzgQbsx28k0stN7l2%2Fuploads%2FPassport2.png?alt=media&token=a2de895c-0ad8-41da-949c-40d6c060a5f4"
+        onerror="if(this.dataset.fallback&&this.src!==this.dataset.fallback){this.src=this.dataset.fallback;}else{this.style.display='none';this.nextElementSibling.style.display='flex';}">
       <div style="display:none;width:100%;aspect-ratio:.78;background:linear-gradient(135deg,#E8E0D2,#C9BBA8);border-radius:6px 72px 6px 72px;align-items:center;justify-content:center">
         <span style="font-family:'Cormorant Garamond',serif;font-size:7rem;font-weight:300;color:#A08060;opacity:.5">D</span>
       </div>
@@ -405,17 +408,16 @@ footer{padding:2rem 6vw;border-top:1px solid var(--sand);display:flex;justify-co
         <h2 class="stitle rv">A mind that<br><em>never stops</em> learning</h2>
         <div class="about-body rv">
           <p>I'm a <strong>Data Scientist and Software Developer</strong> driven by genuine curiosity and the conviction that every problem is an opportunity to grow.</p>
-          <p>My work lives at the intersection of <strong>data science, machine learning, and systems architecture</strong>. Good software isn't just functional — it's elegant, secure, and built to create lasting value.</p>
+          <p>My work lives at the intersection of <strong>data analysis, databases, and software development</strong>. Good software isn't just functional — it's elegant, secure, and built to create lasting value.</p>
         </div>
         <div class="stats-row" style="margin-top:2.5rem">
           <div class="sc rv d1"><div class="sc-n">2+</div><div class="sc-l">Years experience</div></div>
           <div class="sc rv d2"><div class="sc-n">5+</div><div class="sc-l">Projects shipped</div></div>
           <div class="sc rv d3"><div class="sc-n">∞</div><div class="sc-l">Curiosity</div></div>
-          <div class="sc rv d4"><div class="sc-n">2026</div><div class="sc-l">BSc grad year</div></div>
         </div>
       </div>
 
-      <!-- RIGHT — skills with proficiency bars -->
+      <!-- RIGHT — skills with proficiency bars (matched to CV) -->
       <div class="skills-right rv d2">
         <div>
           <p class="skill-cat-title">Skills</p>
@@ -424,19 +426,14 @@ footer{padding:2rem 6vw;border-top:1px solid var(--sand);display:flex;justify-co
             <div class="skill-bar-row"><span class="skill-bar-label">Power BI</span><div class="skill-bar-track"><div class="skill-bar-fill" style="--w:85%"></div></div></div>
             <div class="skill-bar-row"><span class="skill-bar-label">Firebase</span><div class="skill-bar-track"><div class="skill-bar-fill" style="--w:83%"></div></div></div>
             <div class="skill-bar-row"><span class="skill-bar-label">GCP</span><div class="skill-bar-track"><div class="skill-bar-fill" style="--w:81%"></div></div></div>
-            <div class="skill-bar-row"><span class="skill-bar-label">Python</span><div class="skill-bar-track"><div class="skill-bar-fill" style="--w:79%"></div></div></div>
-            <div class="skill-bar-row"><span class="skill-bar-label">Pandas</span><div class="skill-bar-track"><div class="skill-bar-fill" style="--w:77%"></div></div></div>
-            <div class="skill-bar-row"><span class="skill-bar-label">Jupyter</span><div class="skill-bar-track"><div class="skill-bar-fill" style="--w:75%"></div></div></div>
-            <div class="skill-bar-row"><span class="skill-bar-label">Big Data</span><div class="skill-bar-track"><div class="skill-bar-fill" style="--w:74%"></div></div></div>
             <div class="skill-bar-row"><span class="skill-bar-label">Postgresql</span><div class="skill-bar-track"><div class="skill-bar-fill" style="--w:73%"></div></div></div>
-            <div class="skill-bar-row"><span class="skill-bar-label">ML &amp; AI </span><div class="skill-bar-track"><div class="skill-bar-fill" style="--w:72%"></div></div></div>
             <div class="skill-bar-row"><span class="skill-bar-label">Git &amp; Github</span><div class="skill-bar-track"><div class="skill-bar-fill" style="--w:71%"></div></div></div>
             <div class="skill-bar-row"><span class="skill-bar-label">Excel</span><div class="skill-bar-track"><div class="skill-bar-fill" style="--w:70%"></div></div></div>
             <div class="skill-bar-row"><span class="skill-bar-label">Google Sheets</span><div class="skill-bar-track"><div class="skill-bar-fill" style="--w:69%"></div></div></div>
             <div class="skill-bar-row"><span class="skill-bar-label">VSCode</span><div class="skill-bar-track"><div class="skill-bar-fill" style="--w:68%"></div></div></div>
-            <div class="skill-bar-row"><span class="skill-bar-label">C</span><div class="skill-bar-track"><div class="skill-bar-fill" style="--w:66%"></div></div></div>
-            <div class="skill-bar-row"><span class="skill-bar-label">Rust</span><div class="skill-bar-track"><div class="skill-bar-fill" style="--w:64%"></div></div></div>
             <div class="skill-bar-row"><span class="skill-bar-label">FlutterFlow</span><div class="skill-bar-track"><div class="skill-bar-fill" style="--w:62%"></div></div></div>
+            <div class="skill-bar-row"><span class="skill-bar-label">Python</span><div class="skill-bar-track"><div class="skill-bar-fill" style="--w:45%"></div></div></div>
+            <div class="skill-bar-row"><span class="skill-bar-label">R</span><div class="skill-bar-track"><div class="skill-bar-fill" style="--w:40%"></div></div></div>
           </div>
         </div>
         </div>
@@ -471,7 +468,7 @@ footer{padding:2rem 6vw;border-top:1px solid var(--sand);display:flex;justify-co
           <div class="svc-row-right">
             <p class="svc-row-desc">Transforming raw data into decisions — through exploratory analysis, KPI reporting, and interactive dashboards that surface what matters to stakeholders.</p>
             <div class="svc-row-tools">
-              <span class="svc-tool">Python</span><span class="svc-tool">SQL</span><span class="svc-tool">Power BI</span><span class="svc-tool">Excel</span><span class="svc-tool">Pandas</span>
+              <span class="svc-tool">SQL</span><span class="svc-tool">Power BI</span><span class="svc-tool">Excel</span><span class="svc-tool">Google Sheets</span><span class="svc-tool">Python</span>
             </div>
           </div>
         </div>
@@ -479,12 +476,12 @@ footer{padding:2rem 6vw;border-top:1px solid var(--sand);display:flex;justify-co
         <div class="svc-row rv d1">
           <div class="svc-row-left">
             <p class="svc-row-num">02</p>
-            <h3 class="svc-row-name">Machine Learning &amp;<br>Predictive Modelling</h3>
+            <h3 class="svc-row-name">Data Entry &amp;<br>Data Cleaning</h3>
           </div>
           <div class="svc-row-right">
-            <p class="svc-row-desc">Building and deploying supervised and unsupervised models — from regression and classification to clustering — with proper validation, tuning, and real-world interpretability.</p>
+            <p class="svc-row-desc">Entering, checking, cleaning and organising data carefully so that it is accurate, consistent and ready for reporting and analysis.</p>
             <div class="svc-row-tools">
-              <span class="svc-tool">Scikit-learn</span><span class="svc-tool">Python</span><span class="svc-tool">R</span><span class="svc-tool">Statistical Modelling</span>
+              <span class="svc-tool">Excel</span><span class="svc-tool">Google Sheets</span>
             </div>
           </div>
         </div>
@@ -492,12 +489,12 @@ footer{padding:2rem 6vw;border-top:1px solid var(--sand);display:flex;justify-co
         <div class="svc-row rv d2">
           <div class="svc-row-left">
             <p class="svc-row-num">03</p>
-            <h3 class="svc-row-name">Data Engineering &amp;<br>ETL Pipelines</h3>
+            <h3 class="svc-row-name">Research &amp;<br>Insight Extraction</h3>
           </div>
           <div class="svc-row-right">
-            <p class="svc-row-desc">Designing and maintaining pipelines that extract, clean, transform, and load data reliably — ensuring consistency and integrity from source to storage.</p>
+            <p class="svc-row-desc">Gathering and organising information from data and research, then documenting the findings clearly so that people can understand them and act on them.</p>
             <div class="svc-row-tools">
-              <span class="svc-tool">Python</span><span class="svc-tool">SQL</span><span class="svc-tool">ETL</span><span class="svc-tool">Data Cleaning</span><span class="svc-tool">Big Data</span>
+              <span class="svc-tool">Excel</span><span class="svc-tool">Google Sheets</span><span class="svc-tool">SQL</span><span class="svc-tool">Power BI</span>
             </div>
           </div>
         </div>
@@ -510,7 +507,7 @@ footer{padding:2rem 6vw;border-top:1px solid var(--sand);display:flex;justify-co
           <div class="svc-row-right">
             <p class="svc-row-desc">Architecting relational and non-relational databases with normalised schemas, query optimisation, and access control — built for performance and long-term maintainability.</p>
             <div class="svc-row-tools">
-              <span class="svc-tool">SQL</span><span class="svc-tool">MongoDB</span><span class="svc-tool">Firebase</span><span class="svc-tool">RBAC</span><span class="svc-tool">Query Optimisation</span>
+              <span class="svc-tool">SQL</span><span class="svc-tool">PostgreSQL</span><span class="svc-tool">Firebase</span>
             </div>
           </div>
         </div>
@@ -523,7 +520,7 @@ footer{padding:2rem 6vw;border-top:1px solid var(--sand);display:flex;justify-co
           <div class="svc-row-right">
             <p class="svc-row-desc">End-to-end development of mobile and web applications — from architecture and API design through to deployment — with security and scalability as first principles.</p>
             <div class="svc-row-tools">
-              <span class="svc-tool">Python</span><span class="svc-tool">Rust</span><span class="svc-tool">REST APIs</span><span class="svc-tool">Firebase</span><span class="svc-tool">Redis</span>
+              <span class="svc-tool">Firebase</span><span class="svc-tool">GCP</span><span class="svc-tool">FlutterFlow</span><span class="svc-tool">GitHub</span><span class="svc-tool">VS Code</span>
             </div>
           </div>
         </div>
@@ -536,7 +533,7 @@ footer{padding:2rem 6vw;border-top:1px solid var(--sand);display:flex;justify-co
           <div class="svc-row-right">
             <p class="svc-row-desc">Communicating complex findings with clarity — through well-structured reports, static charts, and live dashboards that speak the language of the audience, not just the analyst.</p>
             <div class="svc-row-tools">
-              <span class="svc-tool">Power BI</span><span class="svc-tool">Matplotlib</span><span class="svc-tool">Seaborn</span><span class="svc-tool">Jupyter</span>
+              <span class="svc-tool">Power BI</span><span class="svc-tool">Excel</span><span class="svc-tool">Google Sheets</span>
             </div>
           </div>
         </div>
@@ -605,7 +602,7 @@ footer{padding:2rem 6vw;border-top:1px solid var(--sand);display:flex;justify-co
           <p class="exp-panel-co">Co-operative University of Kenya · Nairobi</p>
           <p class="exp-panel-desc">Building deep expertise across the full spectrum of data science — applying classroom knowledge to real-world software projects throughout the degree.</p>
           <ul class="exp-bullets">
-            <li>Machine learning, statistical modelling, and big data analytics</li>
+            <li>Coursework in statistics, data analysis and big data analytics</li>
             <li>Database management, SQL, and software development fundamentals</li>
             <li>Data visualisation and storytelling with Power BI and Python</li>
             <li>Prior: KCSE Grade B — St. Bonaventure Kaheti (2018–2022)</li>
@@ -627,132 +624,136 @@ footer{padding:2rem 6vw;border-top:1px solid var(--sand);display:flex;justify-co
     <p class="rv" style="color:var(--light-text);font-size:.82rem;margin-bottom:2.5rem;letter-spacing:.04em">Tap any project to unfold the full story &nbsp;→</p>
     <div class="acc rv">
 
-      <!-- SASINI -->
       <div class="acc-item open" id="pr-1">
         <div class="acc-head" onclick="toggleAcc('pr-1')">
           <span class="acc-num">01</span>
           <div class="acc-meta">
-            <div class="acc-tags"><span class="tag g">Agriculture</span><span class="tag g">Mobile App</span></div>
+            <div class="acc-tags"><span class="tag g">Agriculture</span></div>
             <div class="acc-name">Sasini <em>Mobile Ecosystem</em></div>
-            <div class="acc-sub">Full-platform · 2025–2026 · Enterprise</div>
+            <div class="acc-sub">Mobile &amp; Web · Agriculture</div>
           </div>
           <div class="acc-chevron">+</div>
         </div>
         <div class="acc-body">
           <div class="acc-inner">
             <div class="proj-vis pv-s">
-              <div style="display:flex;gap:1rem;align-items:flex-end">
-                <div class="pm">
-                  <div style="font-family:'Cormorant Garamond',serif;font-size:.8rem;font-weight:600;color:#8FA88C;margin-bottom:4px">Sasini</div>
-                  <div class="pml w8"></div><div class="pml w6"></div>
-                  <div style="display:flex;gap:3px;margin:4px 0"><div style="height:24px;flex:1;background:rgba(143,168,140,.3);border-radius:3px"></div><div style="height:24px;flex:1;background:rgba(201,187,168,.3);border-radius:3px"></div></div>
-                  <div class="pml w7"></div>
-                  <div style="width:90%;height:16px;background:rgba(143,168,140,.5);border-radius:3px;margin-top:4px"></div>
-                </div>
-                <div class="pm" style="height:108px;opacity:.6">
-                  <div class="pml w8"></div><div class="pml w6"></div>
-                  <div style="display:flex;gap:3px"><div style="width:7px;height:7px;border-radius:50%;background:#EDD5C8"></div><div style="width:7px;height:7px;border-radius:50%;background:#EDD5C8"></div></div>
-                  <div class="pml w7"></div>
-                </div>
-              </div>
-              <div class="proj-vis-label" style="color:var(--sage)">Agricultural Digital Ecosystem</div>
+              <div class="proj-icon" style="color:var(--sage)"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M11 20A7 7 0 0 1 9.8 6.1C15.5 5 17 4.48 19 2c1 2 2 4.18 2 8 0 5.5-4.78 10-10 10Z"/><path d="M2 21c0-3 1.85-5.36 5.08-6C9.5 14.52 12 13 13 12"/></svg></div>
+              <div class="proj-vis-label" style="color:var(--sage)">Agriculture</div>
             </div>
             <div class="acc-details">
               <h4>About this project</h4>
-              <p>A comprehensive digital platform for Kenya's agricultural sector serving thousands of registered tea and coffee farmers — with end-to-end farm management, transparent payment tracking, and AI-powered crop diagnostics.</p>
-              <ul class="feat-list">
-                <li>SSL/TLS 1.3 encryption with SQL-injection-proof validation at every entry point</li>
-                <li>AI Agronomist — pixel-level crop disease diagnosis via Vision Inference Engine</li>
-                <li>Real-time delivery tracking with Macro-to-Micro data hierarchy and audit trails</li>
-                <li>Closed-loop e-commerce via Redis-backed cart & RabbitMQ async brokering</li>
-                <li>Live GPS micro-climate forecasting with movement detection per farm plot</li>
-                <li>Pest & disease biosecurity reporting routed to Sasini Agronomy Desk in real-time</li>
-              </ul>
-              <div style="display:flex;gap:.75rem;flex-wrap:wrap">
-              </div>
+              <p>A digital platform for Kenya's agricultural sector that helps registered tea and coffee farmers manage their farms, follow their deliveries and payments, and get support when their crops need attention.</p>
+              <ul class="feat-list"><li>Farm records and delivery tracking for each farmer</li><li>Clear view of payments and farm history</li><li>Help with spotting crop diseases from photos</li><li>Weather updates and pest reporting for farm plots</li></ul> <a href="https://play.google.com/store/apps/details?id=com.sasinifarmersapp&amp;hl=en" target="_blank" rel="noopener" class="pbtn dark"><svg viewBox="0 0 24 24" width="14" height="14" style="margin-right:2px"><path fill="#34A853" d="M3.6 1.8 13.4 12 3.6 22.2c-.4-.2-.6-.6-.6-1.1V2.9c0-.5.2-.9.6-1.1Z"/><path fill="#FBBC04" d="m16.8 8.6-3.4 3.4 3.4 3.4 3.8-2.2c.8-.5.8-1.8 0-2.3Z"/><path fill="#EA4335" d="M13.4 12 3.6 22.2c.3.2.8.2 1.2 0l12-6.8Z"/><path fill="#4285F4" d="M3.6 1.8c.4-.2.9-.2 1.2 0l12 6.8-3.4 3.4Z"/></svg> Get it on Google Play</a>
             </div>
           </div>
         </div>
       </div>
 
-      <!-- ALIVRA -->
       <div class="acc-item" id="pr-2">
         <div class="acc-head" onclick="toggleAcc('pr-2')">
           <span class="acc-num">02</span>
           <div class="acc-meta">
-            <div class="acc-tags"><span class="tag go">Health Tech</span><span class="tag">Mobile + Web</span></div>
+            <div class="acc-tags"><span class="tag go">Health</span></div>
             <div class="acc-name">Alivra <em>Health System</em></div>
-            <div class="acc-sub">Mobile & Web · 2025–2026 · Healthcare</div>
+            <div class="acc-sub">Mobile &amp; Web · Healthcare</div>
           </div>
           <div class="acc-chevron">+</div>
         </div>
         <div class="acc-body">
           <div class="acc-inner">
-            <div class="proj-vis pv-a" style="flex-direction:column;gap:.8rem">
-              <div style="font-family:'Cormorant Garamond',serif;font-size:3.5rem;font-weight:300;color:var(--gold);opacity:.4;line-height:1">Alivra</div>
-              <div style="display:flex;gap:10px;align-items:center">
-                <div style="width:42px;height:60px;background:rgba(196,149,58,.12);border:1px solid rgba(196,149,58,.25);border-radius:8px;display:flex;align-items:center;justify-content:center"><div style="width:20px;height:20px;border-radius:50%;border:2px solid rgba(196,149,58,.4)"></div></div>
-                <div style="display:flex;flex-direction:column;gap:5px">
-                  <div style="width:65px;height:3px;background:rgba(196,149,58,.2);border-radius:2px"></div>
-                  <div style="width:48px;height:3px;background:rgba(196,149,58,.15);border-radius:2px"></div>
-                  <div style="width:56px;height:3px;background:rgba(196,149,58,.1);border-radius:2px"></div>
-                </div>
-              </div>
-              <div class="proj-vis-label" style="color:var(--gold)">Health Record Platform</div>
+            <div class="proj-vis pv-a">
+              <div class="proj-icon" style="color:var(--gold)"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M19 14c1.49-1.46 3-3.21 3-5.5A5.5 5.5 0 0 0 16.5 3c-1.76 0-3 .5-4.5 2-1.5-1.5-2.74-2-4.5-2A5.5 5.5 0 0 0 2 8.5c0 2.3 1.5 4.05 3 5.5l7 7Z"/><path d="M3.2 12h5.3l1.5-3 2 6 1.5-3h6.3"/></svg></div>
+              <div class="proj-vis-label" style="color:var(--gold)">Healthcare</div>
             </div>
             <div class="acc-details">
               <h4>About this project</h4>
-              <p>A world-standard health record management platform built for both mobile and web, featuring end-to-end encryption, automated medical journaling, and integrated cloud functions for secure patient data management.</p>
-              <ul class="feat-list">
-                <li>End-to-end encrypted patient health record management</li>
-                <li>Automated medical journaling with cloud function triggers</li>
-                <li>Cross-platform mobile and web application architecture</li>
-                <li>Secure authentication and role-based data access control</li>
-              </ul>
+              <p>A mobile and web platform for managing patient health records, designed to keep medical information safe, organised and easy for patients and health workers to access when they need it.</p>
+              <ul class="feat-list"><li>Secure storage of patient health records</li><li>Automatic medical journaling for each patient</li><li>Works on both mobile phones and the web</li><li>Access given to people according to their role</li></ul>
             </div>
           </div>
         </div>
       </div>
 
-      <!-- ESCRIVA -->
       <div class="acc-item" id="pr-3">
         <div class="acc-head" onclick="toggleAcc('pr-3')">
           <span class="acc-num">03</span>
           <div class="acc-meta">
-            <div class="acc-tags"><span class="tag te">Corporate Web</span><span class="tag">Design & Dev</span></div>
-            <div class="acc-name">Escriva <em>Corporate Website</em></div>
-            <div class="acc-sub">Web · escrivalimited.com · Live</div>
+            <div class="acc-tags"><span class="tag g">Insurance</span></div>
+            <div class="acc-name">Assurian <em>Insurance Platform</em></div>
+            <div class="acc-sub">Web Platform · Insurance &amp; Finance</div>
           </div>
           <div class="acc-chevron">+</div>
         </div>
         <div class="acc-body">
           <div class="acc-inner">
-            <div class="proj-vis pv-e" style="text-align:center;flex-direction:column;gap:.75rem">
-              <div style="font-family:'Cormorant Garamond',serif;font-size:2.2rem;font-weight:300;color:var(--terracotta);letter-spacing:.12em">ESCRIVA</div>
-              <div style="font-size:9px;letter-spacing:.35em;text-transform:uppercase;color:var(--tan)">LIMITED</div>
-              <div style="width:60px;height:1px;background:var(--sand);margin:0 auto"></div>
-              <div style="font-size:9px;color:var(--light-text);letter-spacing:.1em">escrivalimited.com</div>
+            <div class="proj-vis pv-s">
+              <div class="proj-icon" style="color:var(--sage)"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10Z"/><path d="m9 12 2 2 4-4"/></svg></div>
+              <div class="proj-vis-label" style="color:var(--sage)">Insurance &amp; Finance</div>
             </div>
             <div class="acc-details">
               <h4>About this project</h4>
-              <p>Developed and deployed the official corporate website for Escriva Limited — the central digital hub for company services, portfolio showcase, and professional identity.</p>
-              <ul class="feat-list">
-                <li>Full design-to-deployment pipeline for corporate digital presence</li>
-                <li>Optimised for conversion, SEO, and professional brand positioning</li>
-                <li>Responsive across all devices with polished UI/UX</li>
-              </ul>
-              <a href="https://escrivalimited.com" target="_blank" class="pbtn dark">Visit Live Site ↗</a>
+              <p>A digital insurance platform that brings the everyday work of an insurance business into one place, from looking after customers and their policies to handling claims and the money behind them.</p>
+              <ul class="feat-list"><li>Customer records managed in one place</li><li>Policy administration from start to renewal</li><li>Claims handled step by step</li><li>Financial work kept in a secure system</li></ul> <a href="https://assurianone.escrivalimited.com/" target="_blank" rel="noopener" class="pbtn dark">Visit Live Site ↗</a>
             </div>
           </div>
         </div>
       </div>
 
-      <!-- DIGITAL PRODUCTS -->
       <div class="acc-item" id="pr-4">
         <div class="acc-head" onclick="toggleAcc('pr-4')">
           <span class="acc-num">04</span>
           <div class="acc-meta">
-            <div class="acc-tags"><span class="tag">Entrepreneurship</span><span class="tag">E-Commerce</span></div>
+            <div class="acc-tags"><span class="tag te">Legal</span></div>
+            <div class="acc-name">Juris <em>Legal Platform</em></div>
+            <div class="acc-sub">Web Platform · Law</div>
+          </div>
+          <div class="acc-chevron">+</div>
+        </div>
+        <div class="acc-body">
+          <div class="acc-inner">
+            <div class="proj-vis pv-e">
+              <div class="proj-icon" style="color:var(--terracotta)"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3v18"/><path d="M5 21h14"/><path d="M3 7h18"/><path d="m6 7-3 7a3 3 0 0 0 6 0Z"/><path d="m18 7-3 7a3 3 0 0 0 6 0Z"/></svg></div>
+              <div class="proj-vis-label" style="color:var(--terracotta)">Legal &amp; Law</div>
+            </div>
+            <div class="acc-details">
+              <h4>About this project</h4>
+              <p>A legal technology platform for law firms and legal professionals that brings clients, cases, documents and the running of the practice together in one organised digital system.</p>
+              <ul class="feat-list"><li>Client and case (matter) records in one place</li><li>Legal workflows followed step by step</li><li>Documents stored and handled safely</li><li>Billing and practice management together</li></ul> <a href="https://juris.escrivalimited.com/" target="_blank" rel="noopener" class="pbtn dark">Visit Live Site ↗</a>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="acc-item" id="pr-5">
+        <div class="acc-head" onclick="toggleAcc('pr-5')">
+          <span class="acc-num">05</span>
+          <div class="acc-meta">
+            <div class="acc-tags"><span class="tag te">Corporate Web</span></div>
+            <div class="acc-name">Escriva <em>Corporate Website</em></div>
+            <div class="acc-sub">Web · escrivalimited.com</div>
+          </div>
+          <div class="acc-chevron">+</div>
+        </div>
+        <div class="acc-body">
+          <div class="acc-inner">
+            <div class="proj-vis pv-e">
+              <div class="proj-icon" style="color:var(--terracotta)"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><path d="M2 12h20"/><path d="M12 2a15 15 0 0 1 0 20 15 15 0 0 1 0-20Z"/></svg></div>
+              <div class="proj-vis-label" style="color:var(--terracotta)">Company Website</div>
+            </div>
+            <div class="acc-details">
+              <h4>About this project</h4>
+              <p>The official website for Escriva Limited, built to give the company a clear and professional presence online where people can learn about its services and get in touch easily.</p>
+              <ul class="feat-list"><li>Company services explained clearly</li><li>Works well on phones, tablets and computers</li><li>Set up so the site is easy to find on search</li><li>Simple way for visitors to make contact</li></ul> <a href="https://escrivalimited.com" target="_blank" class="pbtn dark">Visit Live Site ↗</a>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="acc-item" id="pr-6">
+        <div class="acc-head" onclick="toggleAcc('pr-6')">
+          <span class="acc-num">06</span>
+          <div class="acc-meta">
+            <div class="acc-tags"><span class="tag ">Business</span></div>
             <div class="acc-name">Digital <em>Product Business</em></div>
             <div class="acc-sub">Online · 2022–2025 · Independent</div>
           </div>
@@ -760,23 +761,14 @@ footer{padding:2rem 6vw;border-top:1px solid var(--sand);display:flex;justify-co
         </div>
         <div class="acc-body">
           <div class="acc-inner">
-            <div class="proj-vis pv-d" style="text-align:center;flex-direction:column;gap:.75rem">
-              <div style="font-family:'Cormorant Garamond',serif;font-size:4.5rem;font-weight:300;color:var(--dusty-rose);opacity:.5;line-height:1">$</div>
-              <div style="font-size:9px;letter-spacing:.2em;text-transform:uppercase;color:var(--light-text)">Digital Products</div>
-              <div style="display:flex;gap:5px;justify-content:center">
-                <div style="padding:2px 9px;border:1px solid var(--sand);border-radius:100px;font-size:9px;color:var(--light-text)">Gumroad</div>
-                <div style="padding:2px 9px;border:1px solid var(--sand);border-radius:100px;font-size:9px;color:var(--light-text)">Payhip</div>
-              </div>
+            <div class="proj-vis pv-d">
+              <div class="proj-icon" style="color:var(--dusty-rose)"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M6 2 3 6v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V6l-3-4Z"/><path d="M3 6h18"/><path d="M16 10a4 4 0 0 1-8 0"/></svg></div>
+              <div class="proj-vis-label" style="color:var(--dusty-rose)">Small Business</div>
             </div>
             <div class="acc-details">
               <h4>About this project</h4>
-              <p>Independently created, marketed, and sold digital eBook products online — demonstrating entrepreneurial initiative, brand-building, and data-driven marketing from concept to consistent revenue.</p>
-              <ul class="feat-list">
-                <li>End-to-end digital product creation and multi-platform publishing</li>
-                <li>Data-driven audience targeting and conversion optimisation strategies</li>
-                <li>Visual content production for personal brand and client projects</li>
-                <li>Consistent client delivery across multiple concurrent engagements</li>
-              </ul>
+              <p>A small independent online business where I created and sold digital eBooks, learning how to plan a product, present it well and understand what customers were looking for.</p>
+              <ul class="feat-list"><li>Created and published digital eBooks</li><li>Sold through Gumroad and Payhip</li><li>Used simple data to reach the right audience</li><li>Designed visual content with Canva</li></ul>
             </div>
           </div>
         </div>
@@ -794,12 +786,12 @@ footer{padding:2rem 6vw;border-top:1px solid var(--sand);display:flex;justify-co
   </div>
   <div class="mq-track">
     <div class="mq-row fwd">
-      <span class="mq-pill">Python</span><span class="mq-pill">R Language</span><span class="mq-pill">SQL</span><span class="mq-pill">Rust</span><span class="mq-pill">C Programming</span><span class="mq-pill">Pandas</span><span class="mq-pill">Power BI</span><span class="mq-pill">Data Science</span><span class="mq-pill">Machine Learning</span><span class="mq-pill">Statistical Modelling</span><span class="mq-pill">Big Data Analytics</span><span class="mq-pill">Database Management</span>
-      <span class="mq-pill">Python</span><span class="mq-pill">R Language</span><span class="mq-pill">SQL</span><span class="mq-pill">Rust</span><span class="mq-pill">C Programming</span><span class="mq-pill">Pandas</span><span class="mq-pill">Power BI</span><span class="mq-pill">Data Science</span><span class="mq-pill">Machine Learning</span><span class="mq-pill">Statistical Modelling</span><span class="mq-pill">Big Data Analytics</span><span class="mq-pill">Database Management</span>
+      <span class="mq-pill">SQL</span><span class="mq-pill">Python</span><span class="mq-pill">R Language</span><span class="mq-pill">Power BI</span><span class="mq-pill">PostgreSQL</span><span class="mq-pill">Data Analysis</span><span class="mq-pill">Business Intelligence</span><span class="mq-pill">Data Entry</span><span class="mq-pill">Data Cleaning</span><span class="mq-pill">Database Management</span><span class="mq-pill">Data Visualisation</span><span class="mq-pill">Reporting</span>
+      <span class="mq-pill">SQL</span><span class="mq-pill">Python</span><span class="mq-pill">R Language</span><span class="mq-pill">Power BI</span><span class="mq-pill">PostgreSQL</span><span class="mq-pill">Data Analysis</span><span class="mq-pill">Business Intelligence</span><span class="mq-pill">Data Entry</span><span class="mq-pill">Data Cleaning</span><span class="mq-pill">Database Management</span><span class="mq-pill">Data Visualisation</span><span class="mq-pill">Reporting</span>
     </div>
     <div class="mq-row rev">
-      <span class="mq-pill">Git & GitHub</span><span class="mq-pill">Jupyter Notebooks</span><span class="mq-pill">VS Code</span><span class="mq-pill">API Integration</span><span class="mq-pill">Web Scraping</span><span class="mq-pill">Data Visualisation</span><span class="mq-pill">Excel</span><span class="mq-pill">Google Sheets</span><span class="mq-pill">Firebase</span><span class="mq-pill">SSL/TLS Security</span><span class="mq-pill">RBAC Architecture</span><span class="mq-pill">Redis & RabbitMQ</span>
-      <span class="mq-pill">Git & GitHub</span><span class="mq-pill">Jupyter Notebooks</span><span class="mq-pill">VS Code</span><span class="mq-pill">API Integration</span><span class="mq-pill">Web Scraping</span><span class="mq-pill">Data Visualisation</span><span class="mq-pill">Excel</span><span class="mq-pill">Google Sheets</span><span class="mq-pill">Firebase</span><span class="mq-pill">SSL/TLS Security</span><span class="mq-pill">RBAC Architecture</span><span class="mq-pill">Redis & RabbitMQ</span>
+      <span class="mq-pill">Git & GitHub</span><span class="mq-pill">VS Code</span><span class="mq-pill">Firebase</span><span class="mq-pill">Google Cloud Platform</span><span class="mq-pill">FlutterFlow</span><span class="mq-pill">Excel</span><span class="mq-pill">Google Sheets</span><span class="mq-pill">Software Development</span><span class="mq-pill">Research & Documentation</span><span class="mq-pill">Problem Solving</span><span class="mq-pill">Teamwork</span><span class="mq-pill">Data Cleaning</span>
+      <span class="mq-pill">Git & GitHub</span><span class="mq-pill">VS Code</span><span class="mq-pill">Firebase</span><span class="mq-pill">Google Cloud Platform</span><span class="mq-pill">FlutterFlow</span><span class="mq-pill">Excel</span><span class="mq-pill">Google Sheets</span><span class="mq-pill">Software Development</span><span class="mq-pill">Research & Documentation</span><span class="mq-pill">Problem Solving</span><span class="mq-pill">Teamwork</span><span class="mq-pill">Data Cleaning</span>
     </div>
   </div>
 </section>
