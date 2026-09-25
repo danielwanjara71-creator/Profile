@@ -9,12 +9,12 @@
 <meta property="og:url" content="https://danielwanjara71-creator.github.io/Profile/">
 <meta property="og:title" content="Daniel Wanjara — Data Scientist &amp; Analyst">
 <meta property="og:description" content="Data Scientist &amp; Analyst in Nairobi, Kenya. Projects: Sasini, Assurian One, Juris One, Alivra Health.">
-<meta property="og:image" content="https://danielwanjara71-creator.github.io/Profile/og-image.png">
+<meta property="og:image" content="https://danielwanjara71-creator.github.io/Profile/og-image.png?v=3">
 <meta property="og:image:width" content="1200">
 <meta property="og:image:height" content="630">
 <meta name="twitter:card" content="summary_large_image">
-<meta name="twitter:image" content="https://danielwanjara71-creator.github.io/Profile/og-image.png">
-<title>Daniel Wanjara — Data Scientist & Software Developer</title>
+<meta name="twitter:image" content="https://danielwanjara71-creator.github.io/Profile/og-image.png?v=3">
+<title>Daniel Wanjara — Data Scientist & Analyst</title>
 <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;1,300;1,400;1,500&family=DM+Sans:opsz,wght@9..40,300;9..40,400;9..40,500&display=swap" rel="stylesheet">
 <script src="https://cdn.jsdelivr.net/npm/@emailjs/browser@4/dist/email.min.js"></script>
 <style>
@@ -316,6 +316,58 @@ footer{padding:2rem 6vw;border-top:1px solid var(--sand);display:flex;justify-co
 .rv.vis{opacity:1;transform:translateY(0)}
 .d1{transition-delay:.1s}.d2{transition-delay:.2s}.d3{transition-delay:.3s}.d4{transition-delay:.4s}
 
+
+/* INTERACTIVITY */
+.sc{cursor:default;position:relative;overflow:hidden}
+.sc::after{content:'';position:absolute;inset:0;background:radial-gradient(circle at var(--mx,50%) var(--my,50%),rgba(192,120,85,.18),transparent 60%);opacity:0;transition:opacity .3s}
+.sc:hover::after{opacity:1}
+.sc:hover .sc-n{transform:scale(1.12)}
+.sc-n{transition:transform .35s cubic-bezier(.23,1,.32,1)}
+.sc:active{transform:scale(.97)}
+.sk-bump{animation:bump .5s}
+@keyframes bump{50%{transform:scale(1.15)}}
+.skill-bar-row{transition:transform .25s}
+.skill-bar-row:hover{transform:translateX(6px)}
+.skill-bar-row:hover .skill-bar-label{color:var(--terracotta)}
+.mq-pill{cursor:default}
+.cch:active,.btn-dark:active,.btn-ghost:active,.pbtn:active{transform:scale(.97)}
+.progress{position:fixed;top:0;left:0;height:2px;background:linear-gradient(90deg,var(--terracotta),var(--gold));width:0;z-index:200}
+
+/* TOUCH: hide custom cursor */
+@media (hover:none),(pointer:coarse){.cur,.cur-ring{display:none!important}}
+
+/* SMALL SCREENS */
+@media(max-width:640px){
+  nav,nav.scrolled{padding:1rem 16px}
+  .si{padding:4.5rem 16px}
+  #hero{padding:6.5rem 16px 3rem;min-height:auto}
+  .hero-name{font-size:clamp(3.2rem,16vw,4.5rem)}
+  .hero-eyebrow{letter-spacing:.18em;line-height:1.8}
+  .hero-scroll-ind{display:none}
+  .photo-chip{white-space:normal;left:50%;transform:translateX(-50%);bottom:-18px;text-align:center;width:max-content;max-width:90vw}
+  .hero-btns a{flex:1;justify-content:center}
+  .stats-row{grid-template-columns:repeat(3,1fr)!important;gap:.6rem}
+  .sc{padding:1rem .5rem}
+  .skill-bar-label{width:92px;font-size:.75rem}
+  .svc-row-name{font-size:1.3rem}
+  .acc-head{padding:1.2rem 1rem;gap:.8rem}
+  .acc-num{font-size:1.8rem;min-width:1.8rem}
+  .acc-name{font-size:1.35rem}
+  .acc-inner{padding:0 1rem 1.5rem;gap:1.5rem}
+  .proj-vis{min-height:180px}
+  .acc-item.open .acc-body{max-height:1400px}
+  .phil-quote{padding-left:1.6rem}
+  .ccard{padding:1.5rem 1.1rem}
+  .cch{padding:.75rem .8rem;gap:.7rem}
+  .cch-txt{flex:1;min-width:0}
+  .cch-val{white-space:normal;overflow-wrap:anywhere;text-overflow:clip}
+  .ccard-title{font-size:1.6rem}
+  footer{flex-direction:column;gap:.4rem;text-align:center;padding:1.5rem 16px 5.5rem}
+  .wafab{bottom:1.2rem;left:1.2rem;width:50px;height:50px}
+  .toast{left:16px;right:16px;min-width:0;bottom:5rem}
+  .stitle{font-size:clamp(2rem,9vw,2.6rem)}
+}
+
 /* RESPONSIVE */
 @media(max-width:960px){
   .hero-wrap{flex-direction:column-reverse;gap:2rem}
@@ -340,6 +392,7 @@ footer{padding:2rem 6vw;border-top:1px solid var(--sand);display:flex;justify-co
 </head>
 <body>
 
+<div class="progress" id="progress"></div>
 <div class="cur" id="cur"></div>
 <div class="cur-ring" id="cur-ring"></div>
 
@@ -379,13 +432,12 @@ footer{padding:2rem 6vw;border-top:1px solid var(--sand);display:flex;justify-co
   <div class="hero-orb o3"></div>
   <div class="hero-wrap">
     <div class="hero-left">
-      <p class="hero-eyebrow">Data Scientist &amp; Software Developer · Nairobi, Kenya</p>
+      <p class="hero-eyebrow">Data Scientist &amp; Analyst · Nairobi, Kenya</p>
       <h1 class="hero-name">Daniel<br><em>Wanjara</em></h1>
       <p class="hero-tag">Building intelligent systems that bridge data and human experience — from agricultural platforms serving thousands of farmers to secure health record ecosystems.</p>
       <div class="hero-meta">
         <div class="hbadge"><span class="pdot"></span>&nbsp;Available for opportunities</div>
-        <div class="hbadge">📍 Nairobi, Kenya</div>
-        <div class="hbadge">🎓 BSc Data Science · 2026</div>
+        <div class="hbadge"><svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 10c0 6-8 12-8 12S4 16 4 10a8 8 0 0 1 16 0Z"/><circle cx="12" cy="10" r="3"/></svg> Nairobi, Kenya</div>
       </div>
       <div class="hero-btns">
         <a href="#projects" class="btn-dark">View My Work &nbsp;→</a>
@@ -400,7 +452,7 @@ footer{padding:2rem 6vw;border-top:1px solid var(--sand);display:flex;justify-co
       <div style="display:none;width:100%;aspect-ratio:.78;background:linear-gradient(135deg,#E8E0D2,#C9BBA8);border-radius:6px 72px 6px 72px;align-items:center;justify-content:center">
         <span style="font-family:'Cormorant Garamond',serif;font-size:7rem;font-weight:300;color:#A08060;opacity:.5">D</span>
       </div>
-      <div class="photo-chip"><strong>BSc Data Science</strong> · Co-operative University of Kenya</div>
+      <div class="photo-chip"><strong>Data Science</strong> · Analytics</div>
     </div>
   </div>
   <div class="hero-scroll-ind"><div class="scroll-ln"></div><span>Scroll</span></div>
@@ -418,12 +470,12 @@ footer{padding:2rem 6vw;border-top:1px solid var(--sand);display:flex;justify-co
         <p class="slabel rv">About</p>
         <h2 class="stitle rv">A mind that<br><em>never stops</em> learning</h2>
         <div class="about-body rv">
-          <p>I'm a <strong>Data Scientist and Software Developer</strong> driven by genuine curiosity and the conviction that every problem is an opportunity to grow.</p>
+          <p>I'm a <strong>Data Scientist and Analyst</strong> driven by genuine curiosity and the conviction that every problem is an opportunity to grow.</p>
           <p>My work lives at the intersection of <strong>data analysis, databases, and software development</strong>. Good software isn't just functional — it's elegant, secure, and built to create lasting value.</p>
         </div>
         <div class="stats-row" style="margin-top:2.5rem">
-          <div class="sc rv d1"><div class="sc-n">2+</div><div class="sc-l">Years experience</div></div>
-          <div class="sc rv d2"><div class="sc-n">5+</div><div class="sc-l">Projects shipped</div></div>
+          <div class="sc rv d1"><div class="sc-n" data-count="2" data-suffix="+">0</div><div class="sc-l">Years experience</div></div>
+          <div class="sc rv d2"><div class="sc-n" data-count="5" data-suffix="+">0</div><div class="sc-l">Projects shipped</div></div>
           <div class="sc rv d3"><div class="sc-n">∞</div><div class="sc-l">Curiosity</div></div>
         </div>
       </div>
@@ -574,7 +626,7 @@ footer{padding:2rem 6vw;border-top:1px solid var(--sand);display:flex;justify-co
         </div>
         <div class="exp-nav-item" onclick="switchExp(2)">
           <div class="exp-nav-period">2022 — 2026</div>
-          <div class="exp-nav-role">BSc Data Science</div>
+          <div class="exp-nav-role">Data Science</div>
         </div>
       </div>
 
@@ -609,8 +661,8 @@ footer{padding:2rem 6vw;border-top:1px solid var(--sand);display:flex;justify-co
 
         <div class="exp-panel" id="ep-2">
           <p class="exp-panel-period">2022 — 2026 (Expected)</p>
-          <h3 class="exp-panel-role">BSc Data Science</h3>
-          <p class="exp-panel-co">Co-operative University of Kenya · Nairobi</p>
+          <h3 class="exp-panel-role">Data Science</h3>
+          <p class="exp-panel-co">Degree Studies · Nairobi, Kenya</p>
           <p class="exp-panel-desc">Building deep expertise across the full spectrum of data science — applying classroom knowledge to real-world software projects throughout the degree.</p>
           <ul class="exp-bullets">
             <li>Coursework in statistics, data analysis and big data analytics</li>
@@ -858,7 +910,7 @@ footer{padding:2rem 6vw;border-top:1px solid var(--sand);display:flex;justify-co
           <h3 class="ccard-title">Open to <em>great</em> conversations</h3>
           <p class="ccard-sub">Whether you have a project in mind, an opportunity to share, or just want to say hello — pick your preferred channel.</p>
           <a href="mailto:danielwanjara71@gmail.com" class="cch em">
-            <div class="cch-ico ico-em">📧</div>
+            <div class="cch-ico ico-em"><svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="#C07855" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="4" width="20" height="16" rx="2"/><path d="m22 7-10 6L2 7"/></svg></div>
             <div class="cch-txt"><span class="cch-lbl">Email</span><span class="cch-val">danielwanjara71@gmail.com</span></div>
             <span class="cch-arr">→</span>
           </a>
@@ -875,7 +927,7 @@ footer{padding:2rem 6vw;border-top:1px solid var(--sand);display:flex;justify-co
             <span class="cch-arr">→</span>
           </a>
           <div class="cch" style="cursor:default">
-            <div class="cch-ico ico-lo">📍</div>
+            <div class="cch-ico ico-lo" style="color:#C4953A"><svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 10c0 6-8 12-8 12S4 16 4 10a8 8 0 0 1 16 0Z"/><circle cx="12" cy="10" r="3"/></svg></div>
             <div class="cch-txt"><span class="cch-lbl">Location</span><span class="cch-val">Nairobi, Kenya · Open to remote</span></div>
           </div>
           <div class="ccard-divider"></div>
@@ -926,7 +978,7 @@ footer{padding:2rem 6vw;border-top:1px solid var(--sand);display:flex;justify-co
 
 <footer>
   <p class="fl">Daniel Wanjara · Nairobi, Kenya</p>
-  <p class="fr">© 2026 · Data Scientist & Software Developer</p>
+  <p class="fr">© 2026 · Data Scientist &amp; Analyst</p>
 </footer>
 
 <script>
@@ -963,6 +1015,26 @@ const ro=new IntersectionObserver(entries=>{
   });
 },{threshold:.08,rootMargin:'0px 0px -30px 0px'});
 document.querySelectorAll('.rv').forEach(el=>ro.observe(el));
+
+
+// ── COUNT-UP STATS ──
+const counted=new WeakSet();
+function countUp(el){
+  if(counted.has(el))return; counted.add(el);
+  const end=+el.dataset.count,suf=el.dataset.suffix||'',t0=performance.now();
+  (function step(){const p=Math.min((performance.now()-t0)/1200,1);el.textContent=Math.round(end*(1-Math.pow(1-p,3)))+(p===1?suf:'');if(p<1)setTimeout(step,16)})();
+}
+const co=new IntersectionObserver(es=>es.forEach(e=>{
+  if(e.isIntersecting) e.target.querySelectorAll('.sc-n[data-count]').forEach(countUp);
+}),{threshold:.2});
+document.querySelectorAll('.stats-row').forEach(el=>co.observe(el));
+// spotlight follow + tap bump on stats
+document.querySelectorAll('.sc').forEach(c=>{
+  c.addEventListener('pointermove',e=>{const r=c.getBoundingClientRect();c.style.setProperty('--mx',(e.clientX-r.left)+'px');c.style.setProperty('--my',(e.clientY-r.top)+'px')});
+  c.addEventListener('click',()=>{const n=c.querySelector('.sc-n');n.classList.remove('sk-bump');void n.offsetWidth;n.classList.add('sk-bump')});
+});
+// scroll progress bar
+window.addEventListener('scroll',()=>{const d=document.documentElement;document.getElementById('progress').style.width=(d.scrollTop/(d.scrollHeight-d.clientHeight)*100)+'%'},{passive:true});
 
 // ── EXPERIENCE TABS ──
 function switchExp(i){
